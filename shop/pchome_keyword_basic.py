@@ -100,7 +100,7 @@ for page in range(1, totalPage):
 """
 # 寫入MySQL
 ## 建立資料庫連線
-        db = MySQLdb.connect(host='localhost', user='root', passwd='firstsql', db='shopping', port=3306, charset='utf8mb4')
+        db = MySQLdb.connect(host='localhost', user='xxxxx', passwd='xxxxx', db='shopping', port=3306, charset='utf8mb4')
         cursor = db.cursor()  # 建立游標
         db.autocommit(True)  # 設定自動確認
 
