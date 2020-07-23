@@ -1,0 +1,54 @@
+{% extends "mybase.html" %}
+{% block content %}
+<html>
+<head>
+  <title>test page</title>
+</head>
+
+<h2>這是測試頁面</h2>
+
+<script language="Javascript">
+
+var tags = document.getElementsByTagName('input');
+
+for (var i = 0; i < tags.length; i++) {
+     if (tags[i].name.substr(0,5)=="items") {
+            if (tags[i].checked) {
+
+                  //在這裡進行有核取的處理
+
+                 // 被核取的值取法  tags[i].value
+            }
+     }
+}
+</script>
+
+<table>
+<input type="checkbox" name="items[]" value="1"> 第 1 項
+<input type="checkbox" name="items[]" value="2"> 第 2 項
+<input type="checkbox" name="items[]" value="3"> 第 3 項
+<input type="checkbox" name="items[]" value="4"> 第 4 項
+</table>
+
+<table>
+<input name="divide[]" type="checkbox" value="newline" /> <label>換行</label>
+<input name="divide[]" type="checkbox" value="tab"> <label>TAB</label>
+<input name="divide[]" type="checkbox" value="semicolon"> <label>分號</label>
+<input name="divide[]" type="checkbox" value="colon"> <label>逗點</label>
+<input name="divide[]" type="checkbox" value="blank"> <label>空格</label>
+</table>
+
+<label for="">Amenities Required</label><br>
+ <input type="checkbox" name="users" value="Bike" checked> I have a bike<br>
+ <input type="checkbox" name="users" value="Car"> I have a car<br>
+ <input type="checkbox" name="users" value="Boat" > I have a boat<br>
+ <input type="checkbox" name="users" value="cycle"> I have a cycle<br>
+ <input type="checkbox" name="users" value="wagnor"> I have a wagnor<br>
+ <input type="checkbox" name="users" value="safari" > I have a safari<br>
+
+
+      if request.method=='POST':
+      amin=request.form.getlist("users")
+      str1 = ','.join(amin)
+      c.execute("INSERT INTO tablename VALUES(%s)",[str1])
+{% endblock %}

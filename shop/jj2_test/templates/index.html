@@ -1,0 +1,36 @@
+{% extends "mybase.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<script type="text/javascript">
+function check_all(obj,cName)
+{
+    var checkboxs = document.getElementsByName(cName);
+    for(var i=0;i<checkboxs.length;i++){checkboxs[i].checked = obj.checked;}
+}
+</script>
+
+<div class="container">
+  <h1>購物檢索系統(這裡是首頁)</h1>
+  <p><h3>搜尋各購物平台的資訊，讓您更方便查到要買的東西</h3></p>
+
+    <form method="post" class="form-inline" action="">
+        <p></p>
+
+      關鍵字搜尋：
+      <input type="text" class="form-control" placeholder="請輸入要搜尋的關鍵字" name="inputtext">
+      </label>&emsp;
+      <button type="submit" class="btn btn-primary" onclick="myFunction()">查詢</button>LED數字時鐘
+    </form>
+
+  <p></p>
+  <p id="send"></p>
+  <script>
+  function myFunction() {
+  document.getElementById("send").innerHTML = " 搜尋中...";
+  }
+</script>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends "mybase.html" %}
+<title>page_default</title>
+
+{% block content %}
+
+<script type="text/javascript">
+function check_all(obj,cName)
+{
+    var checkboxs = document.getElementsByName(cName);
+    for(var i=0;i<checkboxs.length;i++){checkboxs[i].checked = obj.checked;}
+}
+</script>
+
+<div class="container">
+  <h2>搜尋結果 (這是result.html)</h2>
+    <p><h3>以下是在PChome和蝦皮以「{{ keyword }}」為關鍵字搜尋的結果</h3></p>
+
+    <form method="post" class="form-inline" action="">
+        篩選器：
+        <input type="text" class="form-control" placeholder="請輸入要篩選的文字">
+        </label>&emsp;
+        <button type="submit" class="btn btn-primary" onSubmit="window.alert('Hi!');">查詢</button>&emsp;(簡約風)
+    </form>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th><input type="checkbox" name="selectall" onclick="check_all(this,'selectoin')"></th>
+          <th>圖片</th>
+          <th>品名</th>
+          <th>價格</th>
+          <th>詳細資料</th>
+        </tr>
+      </thead>
+
+        <tbody>
+        {% for n in prod_name %}
+        <tr>
+          <td valign="center"><input type="checkbox" name="selectoin" value={{ n[3] }}></td>
+            <td valign="center">{{ n[1] }}</td>
+          <td valign="center"><img src="{{ n[7] }}" alt={{ n[4] }}  width="70px"></img></td>
+          <td valign="center">{{ n[5] }}</td>
+          <td valign="center">{{ n[6] }}</td>
+          <td valign="center"><a href={{ n[4] }} target="_blank">點選看看內容</a></td>
+        </tr>
+        {% endfor %}
+
+        <div class="container">
+
+        <input type="button" id="ok" value="確定">
+        <script language="Javascript">
+          $(document).ready(function(){
+          $("#ok").click(function(){
+          var selected=[];
+          $("[name=selectoin]:checkbox:checked").each(function(){
+          selected.push($(this).val());
+          });
+          alert("您選擇的項目 : " + selected.join());
+          });
+          });
+
+</script>
+        </div>
+
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "mybase.html" %}
+{% block title %}keyword{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2>關鍵字檢索</h2>
+  <p>利用關鍵字搜尋各購物平台的資訊，讓您更方便查到要買的東西</p>
+  <p>以下是包含"簡約風"的搜尋結果</p>
+
+  <form class="form-inline" action="/new">
+    關鍵字師選：
+    <input type="text" class="form-control" id="keyword" placeholder="請輸入關鍵字" name="keyword">
+    </label>&emsp;
+    <button type="submit" class="btn btn-primary">查詢</button>&emsp;(簡約風)
+  </form>
+
+  <table class="table table-hover">
+      <thead>
+        <tr>
+          <th><input type="checkbox" name="selectall" onclick="check_all(this,'selectoin')"></th>
+          <th>圖片</th>
+          <th>品名</th>
+          <th>價格</th>
+          <th>詳細資料</th>
+        </tr>
+      </thead>
+
+<tbody>
+    {% for n in prod_name %}
+        <tr>
+          <td valign="center"><input type="checkbox" name="selectoin" value=""></td>
+          <td valign="center"><img src="{{ n[7] }}" alt={{ n[4] }}  width="70px"></img></td>
+          <td valign="center">{{ n[5] }}</td>
+          <td valign="center">{{ n[6] }}</td>
+          <td valign="center"><a href={{ n[4] }} target="_blank">點選看看內容</a></td>
+        </tr>
+{% endfor %}
+</tbody>
+  </table>
+  </div>
+</div>
+</div>
+{% endblock %}
