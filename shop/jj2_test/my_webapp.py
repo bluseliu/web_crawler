@@ -18,7 +18,7 @@ def my_index():
         from shop import pchome_keyword
         from shop import shopee_keyword
 
-        db = MySQLdb.connect(host='localhost', user='root', passwd='firstsql', db='shopping', port=3306, charset='utf8')
+        db = MySQLdb.connect(host='localhost', user='xxxxx', passwd='xxxxx', db='shopping', port=3306, charset='utf8')
         cursor = db.cursor()
         # names = 'select * from pchome'
         names = 'select * from pchome where keyword = "%s"' % (input_name)
@@ -34,7 +34,7 @@ def default():
     keyword = request.form['inputtext']
     print('/default', keyword)
 
-    db = MySQLdb.connect(host='localhost', user='root', passwd='firstsql', db='shopping', port=3306, charset='utf8')
+    db = MySQLdb.connect(host='localhost', user='xxxxx', passwd='xxxxx', db='shopping', port=3306, charset='utf8')
     cursor = db.cursor()
     # names = 'select * from pchome'
     names = 'select * from pchome where keyword = "%s"' % (keyword)
